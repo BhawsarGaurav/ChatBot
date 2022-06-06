@@ -1,21 +1,33 @@
 const handleWebhook = (request, response) => {
   const tag = request.body.queryResult.intent.displayName;
-
+  const query = request.body.queryResult.queryText;
   let jsonResponse = {};
-  console.log("dsjnvdsvn");
+
   if (tag === "Default Welcome Intent") {
-    console.log("dsjkbjsdf");
-    //fulfillment response to be sent to the agent if the request tag is equal to "welcome tag"
-    jsonResponse = {
-      fulfillment_messages: [
-        {
-          text: {
-            //fulfillment text response to be sent to the agent
-            text: ["Hello from a gaurav bhawsar Webhook"],
+    if (query === "hi what is your name") {
+      //fulfillment response to be sent to the agent if the request tag is equal to "welcome tag"
+      jsonResponse = {
+        fulfillment_messages: [
+          {
+            text: {
+              //fulfillment text response to be sent to the agent
+              text: ["Hello my name is gaurav"],
+            },
           },
-        },
-      ],
-    };
+        ],
+      };
+    } else if (query === "hi") {
+      jsonResponse = {
+        fulfillment_messages: [
+          {
+            text: {
+              //fulfillment text response to be sent to the agent
+              text: ["Hello, how are you"],
+            },
+          },
+        ],
+      };
+    }
   } else if (tag === "get-name") {
     //fulfillment response to be sent to the agent if the request tag is equal to "welcome tag"
     jsonResponse = {
