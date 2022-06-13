@@ -2,7 +2,7 @@ const express = require("express");
 const dotnev = require("dotenv");
 const cors = require("cors");
 const fs = require("fs");
-const DB = require("./Config/db");
+// const DB = require("./Config/db");
 const chatBotRoutes = require("./Routes/chatBotRoutes");
 const userRoutes = require("./Routes/userRoutes");
 const app = express();
@@ -17,7 +17,7 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
   res.render("index.html");
 });
-DB();
+// DB();
 const port = process.env.PORT || 5000;
 const server = app.listen(
   port,
