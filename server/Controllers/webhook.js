@@ -68,7 +68,7 @@ const handleWebhook = async (request, response) => {
     };
   } else if (tag === "truks") {
     const response = request.body.queryResult.parameters;
-    const tex = response.truk;
+    const tex = response.truks;
     jsonResponse = {
       fulfillment_messages: [
         {
