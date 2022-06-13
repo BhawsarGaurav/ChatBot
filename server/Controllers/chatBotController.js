@@ -42,10 +42,25 @@ const runSample = async (req, res) => {
   }
 };
 const createInt = async (req, res) => {
-  const { displayName, trainingPhrasesParts, messageTexts } = req.body;
+  const {
+    displayName,
+    trainingPhrasesParts,
+    messageTexts,
+    entityName,
+    paraName,
+    paraDisplayName,
+  } = req.body;
   const projectId = "chatbot-351910";
 
-  console.log(projectId, displayName, trainingPhrasesParts, messageTexts);
+  console.log(
+    projectId,
+    displayName,
+    trainingPhrasesParts,
+    messageTexts,
+    entityName,
+    paraName,
+    paraDisplayName
+  );
 
   try {
     async function createIntent() {
@@ -76,10 +91,19 @@ const createInt = async (req, res) => {
       };
       console.log(message);
       console.log(trainingPhrases);
+      const parameters = [
+        {
+          entityTypeDisplayName: entityName,
+          displayName: paraDisplayName,
+          name: paraName,
+        },
+      ];
       const intent = {
         displayName: displayName,
         trainingPhrases: trainingPhrases,
         messages: [message],
+        parameters: parameters,
+        webhookState: "WEBHOOK_STATE_ENABLEDx`",
       };
 
       const createIntentRequest = {
