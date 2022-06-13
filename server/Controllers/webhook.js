@@ -66,6 +66,19 @@ const handleWebhook = async (request, response) => {
         },
       ],
     };
+  } else if (tag === "truks") {
+    const response = request.body.queryResult.parameters;
+    const tex = response.truk;
+    jsonResponse = {
+      fulfillment_messages: [
+        {
+          text: {
+            //fulfillment text response to be sent to the agent
+            text: [tex],
+          },
+        },
+      ],
+    };
   } else {
     jsonResponse = {
       //fulfillment text response to be sent to the agent if there are no defined responses for the specified tag
