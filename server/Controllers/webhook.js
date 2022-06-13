@@ -1,4 +1,4 @@
-const handleWebhook = (request, response) => {
+const handleWebhook = async (request, response) => {
   const tag = request.body.queryResult.intent.displayName;
   const query = request.body.queryResult.queryText;
   let jsonResponse = {};
