@@ -1,5 +1,7 @@
-const { EntityClient } = require("@google-cloud/dialogflow");
-
+const dialogflow = require("@google-cloud/dialogflow");
+const EntityClient = new dialogflow.EntityTypesClient({
+  keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+});
 const CreateEntity = async (req, res) => {
   const { displayName, entities } = req.body;
   const projectId = process.env.PROJECTID;
@@ -14,8 +16,8 @@ const CreateEntity = async (req, res) => {
       parent: agentPath,
       entityType: entites,
     };
-    const [operation] = await EntityClient.createEntityType(request);
-    const [response] = await operation.promise();
+    const response = await EntityClient.createEntityType(request);
+
     return res.send(response);
   } catch (err) {
     console.log(err);
