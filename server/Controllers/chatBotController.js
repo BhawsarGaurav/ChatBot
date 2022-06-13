@@ -100,7 +100,7 @@ const createInt = async (req, res) => {
         displayName: displayName,
         trainingPhrases: trainingPhrases,
         messages: [message],
-        parameters: parameters,
+        // parameters: parameters,
         webhookState: "WEBHOOK_STATE_ENABLEDx`",
       };
 
