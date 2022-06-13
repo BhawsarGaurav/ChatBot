@@ -48,7 +48,7 @@ const handleWebhook = async (request, response) => {
           {
             text: {
               //fulfillment text response to be sent to the agent
-              text: response.value,
+              text: [response.value],
             },
           },
         ],
