@@ -1,5 +1,5 @@
 const User = require("../Schemas/User_Schema");
-const generateToken = require("../config/generateToken");
+const generateToken = require("../Config/generateToken");
 const bcrypt = require("bcrypt");
 
 const saltRounds = 10;
