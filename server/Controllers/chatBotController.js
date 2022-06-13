@@ -70,9 +70,7 @@ const createInt = async (req, res) => {
       const trainingPhrases = [];
 
       trainingPhrasesParts.forEach((trainingPhrasesPart) => {
-        const part = {
-          text: trainingPhrasesPart,
-        };
+        const part = trainingPhrasesPart;
 
         // Here we create a new training phrase for each provided part.
         const trainingPhrase = {
