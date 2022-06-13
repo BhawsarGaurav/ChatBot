@@ -40,18 +40,20 @@ const handleWebhook = async (request, response) => {
         },
       ],
     };
-  } else if (query === "do you have any xuv?") {
-    const response = request.body.queryResult.parameters;
-    jsonResponse = {
-      fulfillment_messages: [
-        {
-          text: {
-            //fulfillment text response to be sent to the agent
-            text: response.value,
+  } else if (tag === "cars") {
+    if (query === "do you have any xuv?") {
+      const response = request.body.queryResult.parameters;
+      jsonResponse = {
+        fulfillment_messages: [
+          {
+            text: {
+              //fulfillment text response to be sent to the agent
+              text: response.value,
+            },
           },
-        },
-      ],
-    };
+        ],
+      };
+    }
   } else {
     jsonResponse = {
       //fulfillment text response to be sent to the agent if there are no defined responses for the specified tag
